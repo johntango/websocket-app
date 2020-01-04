@@ -1,0 +1,37 @@
+<!DOCTYPE html>  
+<html>
+<input type='text' id='message' placeholder='Message' >
+<button type='button' onclick="postMessage()">Post Message</button>
+<div id="messages"></div>
+
+<script>  
+var websocket; 
+
+function init() { 
+   websocket = new WebSocket('ws://localhost:8081'); 
+
+   websocket.onopen = function(evt) {  
+      websocket.send('Hello from Browser!');
+   }; 
+
+   websocket.onmessage = function(evt) { 
+      console.log('Message back from server');
+      displayMessage(evt); 
+   }; 
+}  
+
+function postMessage() { 
+   var message = document.getElementById("message").value;    
+   websocket.send(message); 
+}  
+
+function displayMessage(evt){
+   var messages = document.getElementById('messages');
+   var newMessage = "<div>" + evt.data + "</div>";  
+   messages.innerHTML = messages.innerHTML + newMessage;
+}
+
+init();
+
+</script>  
+</html>
