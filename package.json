@@ -1,0 +1,23 @@
+{
+  "name": "websockets",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/johntango/websocket-app.git"
+  },
+  "author": "jrw@mit.edu",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/johntango/websocket-app/issues"
+  },
+  "homepage": "https://github.com/johntango/websocket-app#readme",
+  "dependencies": {
+    "ws": "^7.2.1"
+  }
+}
